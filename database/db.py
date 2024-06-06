@@ -1,20 +1,12 @@
-import mysql.connector
-from mysql.connector import Error
+from sqlmodel import create_engine, Session
 from settings import get_config
 
+config = get_config()
 
-def create_connection():
-    config = get_config()
-    try:
-        connection = mysql.connector.connect(
-            host=config.get('DB_HOST'),
-            user=config.get('DB_USER'),
-            password=config.get('DB_PASSWORD'),
-            database=config.get('DB_NAME')
-        )
-        if connection.is_connected():
-            print(f"Connection to MySQL database '{config.get('DB_NAME')}' is successful")
-            return connection
-    except Error as e:
-        print(f"Error while connecting to MySQL: {e}")
-        return None
+DATABASE_URL = (f"mysql+mysqlconnector://{config.get('DB_USER')}:{config.get('DB_PASSWORD')}@{config.get('DB_HOST')}"
+                f"/{config.get('DB_NAME')}")
+engine = create_engine(DATABASE_URL)
+
+
+def get_session():
+    return Session(engine)
