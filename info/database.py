@@ -88,7 +88,7 @@ class Database:
             else:
                 condition_str = conditions
                 # 构建SQL语句
-                sql = f'SELECT {attribute_str} FROM {table_name} WHERE {condition_str}'
+                sql = f'SELECT {attribute_str} FROM {table_name} {condition_str}'
 
             cursor.execute(sql)
             result = cursor.fetchall()
@@ -140,8 +140,9 @@ def main():
 
     table_name = 'example_table'
 
-    result = db.select_table('*', table_name, 'id=4 And title="Title 1"')
+    result = db.select_table('*', table_name, 'WHERE id=4 And title="Title 1"')
     # db.delete_rows(table_name,'id=3')
+
     print("查询结果:")
     for row in result:
         print(row)

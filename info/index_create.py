@@ -71,7 +71,7 @@ if __name__ == '__main__':
     db_password = 'Y1j1i1123'
     db_name = 'python_database'
     db_port = 3306
-    table_name = 'example_table'
+    table_name = 'home'
     index_dir = "indexdir"
 
     create_search_index_from_mysql(db_host, db_user, db_password, db_name, db_port, table_name, index_dir)
