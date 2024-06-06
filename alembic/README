@@ -1,1 +1,4 @@
 Generic single-database configuration.
+
+进行任何数据库迁移初始化的时候使用指令：alembic revision --autogenerate -m "迁移信息"
+进行数据库更新的时候使用指令：alembic upgrade head
