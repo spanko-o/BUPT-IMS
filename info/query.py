@@ -3,7 +3,6 @@ from whoosh.index import open_dir
 from whoosh.query import Or,And
 import string
 from whoosh import qparser
-# pip freeze > requirements.txt 将所有需要用到的包与版本 写入这个文件
 def search_keywords(keywords:list, index_dir:string, page_num:int, results_per_page=1):
     """进行信息检索：
     param keywords：列表，index_dir索引目录，page_num要求的页码数
