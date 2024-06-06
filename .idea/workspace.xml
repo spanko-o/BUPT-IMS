@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b919344c-de56-4145-9473-cbae93670416" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/applications/User/utils/index_create.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/applications/User/utils/query.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/applications/deatils/utils/generate_url.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/applications/home/utils/message_get.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/User/views/user_login_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/applications/User/views/user_login_view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/info/index_create.py" beforeDir="false" afterPath="$PROJECT_DIR$/info/index_create.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/responses.py" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/responses.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +41,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "ysk",
-    "last_opened_file_path": "C:/Users/hi/PycharmProjects/信息检索/applications/User/utils",
+    "last_opened_file_path": "C:/Users/hi/PycharmProjects/信息检索",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -106,6 +99,7 @@
       <workItem from="1717642550390" duration="2000" />
       <workItem from="1717644570104" duration="167000" />
       <workItem from="1717655940200" duration="4686000" />
+      <workItem from="1717661908497" duration="421000" />
     </task>
     <servers />
   </component>
