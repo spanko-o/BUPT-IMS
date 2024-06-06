@@ -8,11 +8,6 @@ from sqlmodel import SQLModel
 from database.models.user import User
 from settings import get_config
 
-"""
-进行任何数据库迁移初始化的时候使用指令：alembic revision --autogenerate -m "迁移信息"
-进行数据库更新的时候使用指令：alembic upgrade head
-"""
-
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config

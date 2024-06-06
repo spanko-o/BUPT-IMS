@@ -2,6 +2,6 @@ from sqlmodel import SQLModel, Field
 
 
 class User(SQLModel, table=True):
-    id: int = Field(default=None, primary_key=True)
+    id: str = Field(default=None, primary_key=True, max_length=8)
     username: str = Field(index=True)
     password: str
