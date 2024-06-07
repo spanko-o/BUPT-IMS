@@ -64,14 +64,3 @@ def create_search_index_from_mysql(db_host, db_user, db_password, db_name, db_po
     finally:
         connection.close()
 
-
-if __name__ == '__main__':
-    db_host = 'localhost'
-    db_user = 'root'
-    db_password = 'Y1j1i1123'
-    db_name = 'python_database'
-    db_port = 3306
-    table_name = 'home'
-    index_dir = "indexdir"
-
-    create_search_index_from_mysql(db_host, db_user, db_password, db_name, db_port, table_name, index_dir)
