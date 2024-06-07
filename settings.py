@@ -1,6 +1,8 @@
 import os
 import yaml
 
+SECRET_KEY = "W8!RhXaNG)iAgG+XGN20WiTr*PI_D4tb4%bvRHw4x1D!2L1+Qi&01F0(gid"
+
 
 class Config:
     def __init__(self, env):

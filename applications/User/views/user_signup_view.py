@@ -14,12 +14,14 @@ class UserSignupView(APIView):
 
         username = data.get('username')
         password = data.get('password')
-        if not all([username, password]):
+        phone = data.get('phone')
+
+        if not all([username, password, phone]):
             raise BadRequestException("Missing required fields")
 
         hashed_password = hash_password(password)
         uid = generate_id()
-        user = User(id=uid, username=username, password=hashed_password)
+        user = User(id=uid, username=username, password=hashed_password, phone=phone)
 
         with get_session() as session:
             session.add(user)
