@@ -8,7 +8,7 @@ default: &default
 development:
   <<: *default
   DB_USER: "root"
-  DB_PASSWORD: "twrmax1234"
+  DB_PASSWORD: "Y1j1i1123"
   DB_NAME: "bupt_ims"
 
 production:
