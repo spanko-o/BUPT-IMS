@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b919344c-de56-4145-9473-cbae93670416" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/visualization/message_get.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/applications/home/utils/message_get.py" beforeDir="false" afterPath="$PROJECT_DIR$/applications/home/utils/message_show.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +42,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "ysk",
-    "last_opened_file_path": "C:/Users/hi/PycharmProjects/信息检索",
+    "last_opened_file_path": "C:/Users/hi/PycharmProjects/信息检索/visualization",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -51,6 +52,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\hi\PycharmProjects\信息检索\visualization" />
       <recent name="C:\Users\hi\PycharmProjects\信息检索\applications\User\utils" />
     </key>
   </component>
@@ -99,7 +101,8 @@
       <workItem from="1717642550390" duration="2000" />
       <workItem from="1717644570104" duration="167000" />
       <workItem from="1717655940200" duration="4686000" />
-      <workItem from="1717661908497" duration="421000" />
+      <workItem from="1717661908497" duration="1112000" />
+      <workItem from="1717686477527" duration="573000" />
     </task>
     <servers />
   </component>
