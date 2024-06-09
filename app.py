@@ -1,6 +1,5 @@
-
 from http.server import HTTPServer, BaseHTTPRequestHandler
-from urllib.parse import urlparse
+from urllib.parse import urlparse, parse_qs
 from urls import url_patterns
 from database.models import initialize_database
 
@@ -16,9 +15,12 @@ class MainRequestHandler(BaseHTTPRequestHandler):
         parsed_path = urlparse(self.path)
         path = parsed_path.path
 
+        query_params = parse_qs(parsed_path.query) if parsed_path else {}
+        headers = {key: self.headers[key] for key in self.headers}
+
         handler_class = url_patterns.get(path)
         if handler_class:
-            handler = handler_class(self)
+            handler = handler_class(self, query_params, headers)
             handler.handle_request()
         else:
             self.send_response(404)

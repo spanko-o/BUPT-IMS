@@ -1,19 +1,19 @@
-# applications/home/views/display.py
-
 from applications.base import APIView
 from middleware.exceptions import BadRequestException
 from middleware.exception_catcher import exception_catcher
 from database.db import get_session
 from database.models.news import News
 from middleware.token_authentication import auth_required
-from middleware.responses import ResponseUtils  # 导入ResponseUtils模块
-import datetime
+from middleware.responses import ResponseUtils
+from sqlmodel import select
+
 
 class HomeAPIView(APIView):
 
     @exception_catcher
     @auth_required
     def get(self, page=1):
+        page = self.query_params.get('page', [1])[0]
         page_size = 10  # 每页显示的新闻条目数
         try:
             page = int(page)
@@ -25,10 +25,8 @@ class HomeAPIView(APIView):
             offset = (page - 1) * page_size
 
             # 查询新闻条目，并应用分页
-            results = session.query(News).order_by(News.time).offset(offset).limit(page_size).all()
-
-        if not results:
-            raise BadRequestException('No news found')
+            statement = select(News).order_by(News.time).offset(offset).limit(page_size)
+            results = session.exec(statement).all()
 
         news_list = []
         for result in results:
@@ -45,7 +43,7 @@ class HomeAPIView(APIView):
         result_dict = {
             "news": news_list,
             "len": len(news_list),  # 当前页新闻的条目数
-            "page": str(page),  # 当前页码
+            "page": page,  # 当前页码
         }
 
         # 返回包含新闻列表的响应，确保传递正确的 response_data 参数

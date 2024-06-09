@@ -5,8 +5,11 @@ from middleware.exceptions import APIException
 
 
 class APIView:
-    def __init__(self, handler):
+    def __init__(self, handler, query_params=None, headers=None, post_data=None):
         self.handler = handler
+        self.query_params = query_params
+        self.headers = headers
+        self.post_data = post_data
         self.json_utils = JSONUtils
         self.response_utils = ResponseUtils
 

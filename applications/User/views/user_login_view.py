@@ -25,7 +25,10 @@ class UserLoginView(APIView):
             user = results.one_or_none()
             if user and verify_password(user.password, password):
                 token = generate_token(user)
-                response_data = {'token': token}
+                response_data = {
+                    "token": token,
+                    "is_admin": user.is_admin
+                }
                 self.response_utils.ok(self.handler, response_data)
             else:
                 raise NotFoundException('Invalid phone or password')

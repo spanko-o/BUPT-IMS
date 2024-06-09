@@ -15,11 +15,11 @@ def verify_token(token):
 
 def auth_required(handler_func):
     def wrapper(handler, *args, **kwargs):
-        auth_header = handler.headers.get("Token")
+        auth_header = handler.headers.get("token")
         if not auth_header:
             raise UnauthorizedException("Authorization header is missing")
 
-        token = auth_header.split(" ")[1]
+        token = auth_header.split(" ")[0]
         payload = verify_token(token)
 
         handler.user = payload
