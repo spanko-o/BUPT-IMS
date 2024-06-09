@@ -2,8 +2,8 @@ from applications.base import APIView
 from middleware.exceptions import BadRequestException
 from middleware.exception_catcher import exception_catcher
 from middleware.token_authentication import auth_required
-from applications.home.utils.query import query_results
-from applications.home.utils.timestamp_trans import timestamp_to_date
+from applications.Home.utils.query import query_results
+from applications.Home.utils.timestamp_trans import timestamp_to_date
 from urllib.parse import urlparse, parse_qs
 from middleware.responses import ResponseUtils
 from middleware.json_utils import JSONUtils

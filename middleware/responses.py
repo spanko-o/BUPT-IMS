@@ -14,10 +14,10 @@ class ResponseUtils:
     @staticmethod
     def ok(handler: BaseHTTPRequestHandler, response_data: dict):
         response_data.setdefault('success', True)
-        response_data.setdefault('home', 'OK')
+        response_data.setdefault('message', 'OK')
         ResponseUtils.send_response(handler, 200, response_data)
 
     @staticmethod
     def send_error(handler: BaseHTTPRequestHandler, exception: APIException):
-        response_data = {'success': False, 'home': exception.detail}
+        response_data = {'success': False, 'message': exception.detail}
         ResponseUtils.send_response(handler, exception.status_code, response_data)
