@@ -12,3 +12,4 @@ class News(SQLModel, table=True):
     content: str = Field(sa_column=Column(Text, nullable=False))
     # 内容，TEXT类型
     chart: Optional[str] = Field(sa_column=Column(Text, nullable=False))
+    click_num: int =Field(default=None)
