@@ -6,3 +6,4 @@ class User(SQLModel, table=True):
     username: str = Field(index=True)
     phone: str = Field(default=None, index=True)
     password: str
+    is_admin: bool = Field(default=False)
