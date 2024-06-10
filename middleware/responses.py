@@ -5,8 +5,17 @@ from middleware.exceptions import APIException
 
 class ResponseUtils:
     @staticmethod
+    def _set_cors_headers(handler: BaseHTTPRequestHandler):
+        handler.send_header("Access-Control-Allow-Origin", "http://localhost:3000")
+        handler.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+        handler.send_header("Access-Control-Allow-Headers", "x-api-key, Content-Type")
+        handler.send_header("Access-Control-Allow-Credentials", "true")
+        handler.send_header("Access-Control-Max-Age", "3600")
+
+    @staticmethod
     def send_response(handler: BaseHTTPRequestHandler, status_code: int, response_data: dict):
         handler.send_response(status_code)
+        ResponseUtils._set_cors_headers(handler)  # 设置CORS头信息
         handler.send_header('Content-Type', 'application/json')
         handler.end_headers()
         handler.wfile.write(json.dumps(response_data).encode())
