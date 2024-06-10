@@ -11,7 +11,7 @@ def search_keywords(keywords, index_dir, page_num, results_per_page=1):
         with ix.searcher() as searcher:
             results = []
             for hit in searcher.all_stored_fields():
-                results.append({"id": hit["id"], "title": hit["title"], "time": hit["time"]})
+                results.append({"id": hit["id"], "title": hit["title"], "time": hit["time"],"url": hit["url"]})
         return results
 
     parser = MultifieldParser(["content", "title"], ix.schema, group=qparser.OrGroup.factory(0.9))
@@ -24,7 +24,7 @@ def search_keywords(keywords, index_dir, page_num, results_per_page=1):
             return results
         for hit in hits:
             time_stamp = hit["time"]
-            results.append({"id": hit["id"], "title": hit["title"], "time": time_stamp})
+            results.append({"id": hit["id"], "title": hit["title"], "time": time_stamp,"url": hit["url"],"click_num": hit["click_num"]})
     return results
 
 
