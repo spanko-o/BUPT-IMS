@@ -5,6 +5,11 @@ from database.models import initialize_database
 
 
 class MainRequestHandler(BaseHTTPRequestHandler):
+    def do_OPTIONS(self):
+        self.send_response(200, "ok")
+        self._set_cors_headers()
+        self.end_headers()
+
     def do_POST(self):
         self._handle_request()
 
@@ -26,6 +31,13 @@ class MainRequestHandler(BaseHTTPRequestHandler):
             self.send_response(404)
             self.end_headers()
             self.wfile.write(b'Path not found')
+
+    def _set_cors_headers(self):
+        self.send_header("Access-Control-Allow-Origin", "http://localhost:3000")
+        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+        self.send_header("Access-Control-Allow-Headers", "x-api-key, Content-Type")
+        self.send_header("Access-Control-Allow-Credentials", "true")
+        self.send_header("Access-Control-Max-Age", "3600")
 
 
 def run(server_class=HTTPServer, handler_class=MainRequestHandler, port=8000):
