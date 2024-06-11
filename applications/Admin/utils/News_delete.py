@@ -8,6 +8,11 @@ def news_delete(tid):
         raise BadRequestException('The tid is required')
     with get_session() as session:
         statements=delete(News).filter(News.id == tid)
-        session.commit(statements)
+        session.execute(statements)
+
+        # 提交事务
+        session.commit()
+
+        return True  # 删除成功后返回 True
 
 

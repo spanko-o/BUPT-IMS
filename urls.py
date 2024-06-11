@@ -6,7 +6,7 @@ from applications.Home.views.home_search_view import SearchAPIView
 from applications.Admin.views.admin_signup_view import AdminSignupView
 from applications.Admin.views.info_add_view import NewsAddView
 from applications.Details.views.details import  DetailsView
-
+from applications.Admin.views.admin_views import AdminViews
 url_patterns = {
     # User
     '/user/signup': UserSignupView,
@@ -21,5 +21,8 @@ url_patterns = {
     '/admin/add_news': NewsAddView,
 
     #Details
-    'home/detail':DetailsView
+    '/home/detail':DetailsView,
+
+    #admin
+    '/admin/home':AdminViews
 }

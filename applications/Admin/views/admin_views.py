@@ -55,9 +55,9 @@ class AdminViews(APIView):
     @auth_required
     def post(self):
         data = self.json_utils.parse_json(self.handler)
-        tid=data.get('tid')
+        tid=data.get('id')
         if not tid:
-            raise BadRequestException("Missing 'tid' in request body")
+            raise BadRequestException("Missing 'id' in request body")
 
         if news_delete(tid):
             response_data = {
