@@ -23,10 +23,11 @@ class NewsAddView(APIView):
                 row: Dict[str, Any]
                 title: str = row['title']
                 url: str = row['url']
-                department: str = row['dept']
+                department: str = row['department']
                 time_str: str = row['time'].strip()
-                content: str = row['txt']
+                content: str = row['content']
                 chart: str = row.get('chart')
+                click_num: int = row['click_num']
 
                 time_obj = datetime.strptime(time_str, '%Y-%m-%d')
 
@@ -42,7 +43,7 @@ class NewsAddView(APIView):
                         time=time_obj,
                         content=content,
                         chart=chart if chart else None,
-                        click_num=0
+                        click_num=click_num
                     )
                     session.add(new_news)
                     session.commit()

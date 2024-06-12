@@ -32,6 +32,7 @@ class HomeAPIView(APIView):
         for result in results:
             # 提取新闻的必要字段，并将 datetime 对象转换为字符串
             news_dict = {
+                "id": result.id,
                 "title": result.title,
                 "url": result.url,
                 "department": result.department,

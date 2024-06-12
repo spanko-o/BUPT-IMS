@@ -9,6 +9,7 @@ from sqlmodel import select
 from applications.Admin.utils.News_delete import news_delete
 from applications.Admin.utils.visualization import ksh_analysis
 
+
 class AdminViews(APIView):
 
     @exception_catcher
@@ -28,11 +29,12 @@ class AdminViews(APIView):
             # 查询新闻条目，并应用分页
             statement = select(News).order_by(News.time).offset(offset).limit(page_size)
             results = session.exec(statement).all()
-        image=ksh_analysis()
+        image = ksh_analysis()
         news_list = []
         for result in results:
             # 提取新闻的必要字段，并将 datetime 对象转换为字符串
             news_dict = {
+                "id": result.id,
                 "title": result.title,
                 "url": result.url,
                 "department": result.department,
@@ -45,7 +47,7 @@ class AdminViews(APIView):
             "news": news_list,
             "len": len(news_list),  # 当前页新闻的条目数
             "page": page,  # 当前页码
-            "image":image
+            "image": image
         }
 
         # 返回包含新闻列表的响应，确保传递正确的 response_data 参数
@@ -55,15 +57,12 @@ class AdminViews(APIView):
     @auth_required
     def post(self):
         data = self.json_utils.parse_json(self.handler)
-        tid=data.get('tid')
+        tid = data.get('id')
         if not tid:
-            raise BadRequestException("Missing 'tid' in request body")
+            raise BadRequestException("Missing 'id' in request body")
 
         if news_delete(tid):
             response_data = {
-                "is_delete":"ok"
+                "is_delete": "ok"
             }
             ResponseUtils.ok(self.handler, response_data)
-
-
-
