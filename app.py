@@ -35,7 +35,7 @@ class MainRequestHandler(BaseHTTPRequestHandler):
     def _set_cors_headers(self):
         self.send_header("Access-Control-Allow-Origin", "http://localhost:3000")
         self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
-        self.send_header("Access-Control-Allow-Headers", "x-api-key, Content-Type")
+        self.send_header("Access-Control-Allow-Headers", "x-api-key, Content-Type, token")
         self.send_header("Access-Control-Allow-Credentials", "true")
         self.send_header("Access-Control-Max-Age", "3600")
 

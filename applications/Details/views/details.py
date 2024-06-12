@@ -9,9 +9,6 @@ from sqlmodel import select
 
 class DetailsView(APIView):
 
-    def __init__(self, handler):
-        super().__init__(handler)
-
     @exception_catcher
     @auth_required
     def get(self):

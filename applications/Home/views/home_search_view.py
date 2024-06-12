@@ -36,7 +36,7 @@ class SearchAPIView(APIView):
             'search': keyword,
             'len': len(temp_list),
             'page': page,  # 当前页码
-            'results': temp_list
+            'news': temp_list
         }
         ResponseUtils.ok(self.handler, result_dict)
 
